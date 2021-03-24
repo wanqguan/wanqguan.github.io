@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wanqguan.github.io</id>
     <title>忘荃的个人网站</title>
-    <updated>2021-03-24T14:27:06.113Z</updated>
+    <updated>2021-03-24T14:43:41.465Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wanqguan.github.io"/>
     <link rel="self" href="https://wanqguan.github.io/atom.xml"/>
@@ -11,12 +11,27 @@
     <icon>https://wanqguan.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, 忘荃的个人网站</rights>
     <entry>
-        <title type="html"><![CDATA[知乎精华：大学生活中的博弈、决策与超越]]></title>
+        <title type="html"><![CDATA[写作平台测试]]></title>
         <id>https://wanqguan.github.io/post/zhi-hu-jing-hua-da-xue-sheng-huo-zhong-de-bo-yi-jue-ce-yu-chao-yue/</id>
         <link href="https://wanqguan.github.io/post/zhi-hu-jing-hua-da-xue-sheng-huo-zhong-de-bo-yi-jue-ce-yu-chao-yue/">
         </link>
         <updated>2021-03-24T13:44:45.000Z</updated>
         <content type="html"><![CDATA[<p>先开个头~</p>
+<p>代码测试：</p>
+<pre><code class="language-python">def get(a):
+    a = 2  # 代码测试
+    return a
+
+print(get(a))
+</code></pre>
+<p>测试链接：<br>
+<a href="https://wanqguan.github.io/post/ge-ren-sui-xiang/">我的第一篇文章</a></p>
+<p>格式测试：</p>
+<h1 id="一级标题">一级标题</h1>
+<h2 id="二级标题">二级标题</h2>
+<h3 id="三级标题">三级标题</h3>
+<p><strong>加粗</strong><br>
+普通</p>
 ]]></content>
     </entry>
     <entry>
