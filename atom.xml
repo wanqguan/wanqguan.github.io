@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wanqguan.github.io</id>
     <title>忘荃的个人网站</title>
-    <updated>2021-03-24T13:16:04.135Z</updated>
+    <updated>2021-03-24T13:23:26.590Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wanqguan.github.io"/>
     <link rel="self" href="https://wanqguan.github.io/atom.xml"/>
@@ -10,6 +10,20 @@
     <logo>https://wanqguan.github.io/images/avatar.png</logo>
     <icon>https://wanqguan.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, 忘荃的个人网站</rights>
+    <entry>
+        <title type="html"><![CDATA[个人随想]]></title>
+        <id>https://wanqguan.github.io/post/ge-ren-sui-xiang/</id>
+        <link href="https://wanqguan.github.io/post/ge-ren-sui-xiang/">
+        </link>
+        <updated>2021-03-24T13:16:09.000Z</updated>
+        <content type="html"><![CDATA[<p>之前一直在知乎写技术或者生活分享类的文章，用了一年之后，发现有些东西直接发在知乎上并不方便，所以经过反复的心理斗争最后给自己又整了个简单的个人小博客。<br>
+<img src="https://wanqguan.github.io/post-images/1616591949321.png" alt="我目前的知乎的创作数据" loading="lazy"></p>
+<p>作为知乎上内容发布的补充，内容将主要有以下特点：</p>
+<p>1 技术类内容，将会更加系统化，同时会在发布后一直保持更新迭代，修改错误或者补充内容。<br>
+2 暂时还没想好<br>
+3 哪位大神指导我一下怎么在博客上加广告呢哈哈哈哈哈</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
         <id>https://wanqguan.github.io/post/hello-gridea/</id>
