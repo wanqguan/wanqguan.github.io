@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://wantquan.github.io</id>
+    <id>https://wagquan.github.io</id>
     <title>忘荃的个人网站</title>
-    <updated>2021-03-24T12:39:37.485Z</updated>
+    <updated>2021-03-24T12:56:09.986Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://wantquan.github.io"/>
-    <link rel="self" href="https://wantquan.github.io/atom.xml"/>
+    <link rel="alternate" href="https://wagquan.github.io"/>
+    <link rel="self" href="https://wagquan.github.io/atom.xml"/>
     <subtitle>艺术×算法×启蒙：Coding的最小闭环，人类智慧的精粹。</subtitle>
-    <logo>https://wantquan.github.io/images/avatar.png</logo>
-    <icon>https://wantquan.github.io/favicon.ico</icon>
+    <logo>https://wagquan.github.io/images/avatar.png</logo>
+    <icon>https://wagquan.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, 忘荃的个人网站</rights>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://wantquan.github.io/post/hello-gridea/</id>
-        <link href="https://wantquan.github.io/post/hello-gridea/">
+        <id>https://wagquan.github.io/post/hello-gridea/</id>
+        <link href="https://wagquan.github.io/post/hello-gridea/">
         </link>
         <updated>2018-12-11T16:00:00.000Z</updated>
         <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
