@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wanqguan.github.io</id>
     <title>忘荃的个人网站</title>
-    <updated>2021-03-26T02:51:57.500Z</updated>
+    <updated>2021-03-26T02:53:25.134Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wanqguan.github.io"/>
     <link rel="self" href="https://wanqguan.github.io/atom.xml"/>
@@ -175,7 +175,7 @@ for i in range(1, 11):
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[写作平台测试]]></title>
+        <title type="html"><![CDATA[写作平台测试（同步时关科学上网）]]></title>
         <id>https://wanqguan.github.io/post/zhi-hu-jing-hua-da-xue-sheng-huo-zhong-de-bo-yi-jue-ce-yu-chao-yue/</id>
         <link href="https://wanqguan.github.io/post/zhi-hu-jing-hua-da-xue-sheng-huo-zhong-de-bo-yi-jue-ce-yu-chao-yue/">
         </link>
