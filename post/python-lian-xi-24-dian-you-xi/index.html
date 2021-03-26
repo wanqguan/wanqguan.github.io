@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Python练习：24点游戏 | 忘荃的个人网站</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://wanqguan.github.io/favicon.ico?v=1616726696045">
+<link rel="stylesheet" href="https://wanqguan.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="编程目标：
+输入一串数字，如 3,5,7,9， 然后再输入一个目标数字，如5，然后求一个在3,5,7,9四个数字之间增加四则运算，括号，以及 '求根', '平方', '立方', '阶乘' 四种操作的一个方案，最终让整个四个数字的运算结果等于..." />
+    <meta name="keywords" content="编程刷题笔记" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://wanqguan.github.io">
+        <img src="https://wanqguan.github.io/images/avatar.png?v=1616726696045" class="site-logo">
+        <h1 class="site-title">忘荃的个人网站</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      艺术×算法×启蒙：Coding的最小闭环，人类智慧的精粹。
+    </div>
+    <div class="site-footer">
+      本网站创建于 2021/3/24  | <a class="rss" href="https://wanqguan.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Python练习：24点游戏</h2>
+            <div class="post-date">2021-03-26</div>
+            
+            <div class="post-content" v-pre>
+              <h2 id="编程目标">编程目标：</h2>
+<p>输入一串数字，如 3,5,7,9， 然后再输入一个目标数字，如5，然后求一个在3,5,7,9四个数字之间增加四则运算，括号，以及 '求根', '平方', '立方', '阶乘' 四种操作的一个方案，最终让整个四个数字的运算结果等于目标数字。</p>
+<h2 id="编程效果">编程效果：</h2>
+<p>输入一串数字，如 3,5,7,9，目标数字依次是从1到10。</p>
+<pre><code>
+import math...
+********** Solve 1 **********
+Step 4 :  10 - 11 = 1
+  然后整体操作：  平方
+Step 3 :  1 + 9 = 10
+Step 2 :  8 - 7 = 1
+Step 1 :  3 + 5 = 8
+
+********** Solve 2 **********
+Step 4 :  9 - 11 = 2
+  然后整个取相反数
+Step 3 :  1 * 9 = 9
+Step 2 :  8 - 7 = 1
+Step 1 :  3 + 5 = 8
+
+********** Solve 3 **********
+Step 4 :  -8 + 11 = 3
+Step 3 :  1 - 9 = -8
+Step 2 :  8 - 7 = 1
+Step 1 :  3 + 5 = 8
+
+********** Solve 4 **********
+Step 4 :  5.0 + 11 = 4.0
+  然后整体操作：  求根
+Step 3 :  225 / 9 = 5.0
+  然后整体操作：  求根
+Step 2 :  8 + 7 = 225
+  然后整体操作：  平方
+Step 1 :  3 + 5 = 8
+
+********** Solve 5 **********
+Step 4 :  6 - 11 = 5
+  然后整个取相反数
+Step 3 :  15 - 9 = 6
+Step 2 :  8 + 7 = 15
+Step 1 :  3 + 5 = 8
+
+********** Solve 6 **********
+Step 4 :  25.0 + 11 = 6.0
+  然后整体操作：  求根
+Step 3 :  225 / 9 = 25.0
+Step 2 :  8 + 7 = 225
+  然后整体操作：  平方
+Step 1 :  3 + 5 = 8
+
+********** Solve 7 **********
+Step 4 :  15 + -8 = 7
+Step 3 :  9 - 11 = -8
+  然后整体操作：  立方
+Step 2 :  8 + 7 = 15
+Step 1 :  3 + 5 = 8
+
+********** Solve 8 **********
+Step 4 :  56 - -8 = 8.0
+  然后整体操作：  求根
+Step 3 :  9 - 11 = -8
+  然后整体操作：  立方
+Step 2 :  8 * 7 = 56
+Step 1 :  3 + 5 = 8
+
+********** Solve 9 **********
+Step 4 :  -8 + 11 = 9
+  然后整体操作：  平方
+Step 3 :  1 - 9 = -8
+Step 2 :  8 - 7 = 1
+Step 1 :  3 + 5 = 8
+
+********** Solve 10 **********
+Step 4 :  1 + 99 = 10.0
+  然后整体操作：  求根
+Step 3 :  9 * 11 = 99
+Step 2 :  8 - 7 = 1
+Step 1 :  3 + 5 = 8
+</code></pre>
+<h2 id="代码">代码</h2>
+<pre><code class="language-python">import math
+
+func0 = lambda x: x
+func1 = lambda x: math.sqrt(x)
+func2 = lambda x: x**2
+func3 = lambda x: x**3
+func4 = lambda x: math.factorial(x)
+total_more_func = [func0, func1, func2, func3, func4]
+total_more_name = ['无', '求根', '平方', '立方', '阶乘']
+
+# 下面这个函数计算任意左边是nums，右边是target的24点游戏的目标数字
+def judgePointGame(nums, target):
+    TARGET = target
+    EPSILON = 1e-12
+    ADD, MULTIPLY, SUBTRACT, DIVIDE = 0, 1, 2, 3
+    cacl_dict = ['+', '*', '-', '/']
+
+    
+    def solve(nums, step):
+        if not nums:
+            return False
+        if len(nums) == 1:
+            return abs(nums[0] - TARGET) &lt; EPSILON
+
+        for i in range(0, len(nums) - 1):
+            x = nums[i]
+            y = nums[i+1]
+            for k in range(4):  # 为 x？y 遍历尝试4种计算，并将结果保存进newNums
+                for getfu in (0, 1):
+                    for total_more in range(4):
+                        newNums = nums[:i]
+
+                        if k == ADD:
+                            tmp = x + y
+                        elif k == MULTIPLY:
+                            tmp = x * y
+                        elif k == SUBTRACT:
+                            tmp = x - y
+                        elif k == DIVIDE:
+                            if abs(y) &lt; EPSILON:
+                                continue
+                            tmp = x / y
+                        
+                        if getfu == 1:
+                            tmp = -tmp
+
+                        func = total_more_func[total_more]
+                        try:
+                            tmp = func(tmp)
+                        except ValueError:
+                            continue
+
+                        newNums.append(tmp)
+
+                        newNums.extend(nums[i+2:])
+                        if solve(newNums, step+1):
+                            print(&quot;Step&quot;, step, ': ', x, cacl_dict[k], y, '=', tmp)
+                            if getfu == 1:
+                                print(&quot;  然后整个取相反数&quot;)
+                            if total_more &gt;= 1:
+                                print(&quot;  然后整体操作： &quot;, total_more_name[total_more])
+                            return True
+
+        
+        
+        return False
+
+    return solve(nums, 1)
+
+
+# 依次计算1-10的目标数字，材料数字是 [3,5,7,9]的24点游戏方案
+for i in range(1, 11):
+    print('*'*10, &quot;Solve&quot;, i, '*'*10)
+    judgePointGame([3,5,7,9], i)
+    print()
+</code></pre>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://wanqguan.github.io/tag/vaW-AWVt4/" class="tag">
+                    编程刷题笔记
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://wanqguan.github.io/post/zhi-hu-jing-hua-da-xue-sheng-huo-zhong-de-bo-yi-jue-ce-yu-chao-yue/">
+                  <h3 class="post-title">
+                    写作平台测试
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wanqguan.github.io</id>
     <title>忘荃的个人网站</title>
-    <updated>2021-03-24T14:52:26.258Z</updated>
+    <updated>2021-03-26T02:44:59.345Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wanqguan.github.io"/>
     <link rel="self" href="https://wanqguan.github.io/atom.xml"/>
@@ -10,6 +10,170 @@
     <logo>https://wanqguan.github.io/images/avatar.png</logo>
     <icon>https://wanqguan.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, 忘荃的个人网站</rights>
+    <entry>
+        <title type="html"><![CDATA[Python练习：24点游戏]]></title>
+        <id>https://wanqguan.github.io/post/python-lian-xi-24-dian-you-xi/</id>
+        <link href="https://wanqguan.github.io/post/python-lian-xi-24-dian-you-xi/">
+        </link>
+        <updated>2021-03-26T02:27:06.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="编程目标">编程目标：</h2>
+<p>输入一串数字，如 3,5,7,9， 然后再输入一个目标数字，如5，然后求一个在3,5,7,9四个数字之间增加四则运算，括号，以及 '求根', '平方', '立方', '阶乘' 四种操作的一个方案，最终让整个四个数字的运算结果等于目标数字。</p>
+<h2 id="编程效果">编程效果：</h2>
+<p>输入一串数字，如 3,5,7,9，目标数字依次是从1到10。</p>
+<pre><code>
+import math...
+********** Solve 1 **********
+Step 4 :  10 - 11 = 1
+  然后整体操作：  平方
+Step 3 :  1 + 9 = 10
+Step 2 :  8 - 7 = 1
+Step 1 :  3 + 5 = 8
+
+********** Solve 2 **********
+Step 4 :  9 - 11 = 2
+  然后整个取相反数
+Step 3 :  1 * 9 = 9
+Step 2 :  8 - 7 = 1
+Step 1 :  3 + 5 = 8
+
+********** Solve 3 **********
+Step 4 :  -8 + 11 = 3
+Step 3 :  1 - 9 = -8
+Step 2 :  8 - 7 = 1
+Step 1 :  3 + 5 = 8
+
+********** Solve 4 **********
+Step 4 :  5.0 + 11 = 4.0
+  然后整体操作：  求根
+Step 3 :  225 / 9 = 5.0
+  然后整体操作：  求根
+Step 2 :  8 + 7 = 225
+  然后整体操作：  平方
+Step 1 :  3 + 5 = 8
+
+********** Solve 5 **********
+Step 4 :  6 - 11 = 5
+  然后整个取相反数
+Step 3 :  15 - 9 = 6
+Step 2 :  8 + 7 = 15
+Step 1 :  3 + 5 = 8
+
+********** Solve 6 **********
+Step 4 :  25.0 + 11 = 6.0
+  然后整体操作：  求根
+Step 3 :  225 / 9 = 25.0
+Step 2 :  8 + 7 = 225
+  然后整体操作：  平方
+Step 1 :  3 + 5 = 8
+
+********** Solve 7 **********
+Step 4 :  15 + -8 = 7
+Step 3 :  9 - 11 = -8
+  然后整体操作：  立方
+Step 2 :  8 + 7 = 15
+Step 1 :  3 + 5 = 8
+
+********** Solve 8 **********
+Step 4 :  56 - -8 = 8.0
+  然后整体操作：  求根
+Step 3 :  9 - 11 = -8
+  然后整体操作：  立方
+Step 2 :  8 * 7 = 56
+Step 1 :  3 + 5 = 8
+
+********** Solve 9 **********
+Step 4 :  -8 + 11 = 9
+  然后整体操作：  平方
+Step 3 :  1 - 9 = -8
+Step 2 :  8 - 7 = 1
+Step 1 :  3 + 5 = 8
+
+********** Solve 10 **********
+Step 4 :  1 + 99 = 10.0
+  然后整体操作：  求根
+Step 3 :  9 * 11 = 99
+Step 2 :  8 - 7 = 1
+Step 1 :  3 + 5 = 8
+</code></pre>
+<h2 id="代码">代码</h2>
+<pre><code class="language-python">import math
+
+func0 = lambda x: x
+func1 = lambda x: math.sqrt(x)
+func2 = lambda x: x**2
+func3 = lambda x: x**3
+func4 = lambda x: math.factorial(x)
+total_more_func = [func0, func1, func2, func3, func4]
+total_more_name = ['无', '求根', '平方', '立方', '阶乘']
+
+# 下面这个函数计算任意左边是nums，右边是target的24点游戏的目标数字
+def judgePointGame(nums, target):
+    TARGET = target
+    EPSILON = 1e-12
+    ADD, MULTIPLY, SUBTRACT, DIVIDE = 0, 1, 2, 3
+    cacl_dict = ['+', '*', '-', '/']
+
+    
+    def solve(nums, step):
+        if not nums:
+            return False
+        if len(nums) == 1:
+            return abs(nums[0] - TARGET) &lt; EPSILON
+
+        for i in range(0, len(nums) - 1):
+            x = nums[i]
+            y = nums[i+1]
+            for k in range(4):  # 为 x？y 遍历尝试4种计算，并将结果保存进newNums
+                for getfu in (0, 1):
+                    for total_more in range(4):
+                        newNums = nums[:i]
+
+                        if k == ADD:
+                            tmp = x + y
+                        elif k == MULTIPLY:
+                            tmp = x * y
+                        elif k == SUBTRACT:
+                            tmp = x - y
+                        elif k == DIVIDE:
+                            if abs(y) &lt; EPSILON:
+                                continue
+                            tmp = x / y
+                        
+                        if getfu == 1:
+                            tmp = -tmp
+
+                        func = total_more_func[total_more]
+                        try:
+                            tmp = func(tmp)
+                        except ValueError:
+                            continue
+
+                        newNums.append(tmp)
+
+                        newNums.extend(nums[i+2:])
+                        if solve(newNums, step+1):
+                            print(&quot;Step&quot;, step, ': ', x, cacl_dict[k], y, '=', tmp)
+                            if getfu == 1:
+                                print(&quot;  然后整个取相反数&quot;)
+                            if total_more &gt;= 1:
+                                print(&quot;  然后整体操作： &quot;, total_more_name[total_more])
+                            return True
+
+        
+        
+        return False
+
+    return solve(nums, 1)
+
+
+# 依次计算1-10的目标数字，材料数字是 [3,5,7,9]的24点游戏方案
+for i in range(1, 11):
+    print('*'*10, &quot;Solve&quot;, i, '*'*10)
+    judgePointGame([3,5,7,9], i)
+    print()
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[写作平台测试]]></title>
         <id>https://wanqguan.github.io/post/zhi-hu-jing-hua-da-xue-sheng-huo-zhong-de-bo-yi-jue-ce-yu-chao-yue/</id>
@@ -44,7 +208,7 @@ print(get(a))
 <img src="https://wanqguan.github.io/post-images/1616591949321.png" alt="我目前的知乎的创作数据" loading="lazy"></p>
 <h3 id="先稍微总结下对知乎不满意的地方吧">先稍微总结下对知乎不满意的地方吧：</h3>
 <ul>
-<li>1 草稿机制不太好用，所以我个人习惯写一个不成熟的版本然后直接发布，然后这个文章就进入评价机制，导致被评价得不够高。</li>
+<li>1 草稿机制不太好用，所以我个人习惯写一个不成熟的版本然后直接发布，然后这个文章就进入评价机制，导致被评价得不够高。另外一方面，这些曾经热血上头或者水平不够写出来的文章侥幸获得了几个赞，以后想起来又想删又怕浪费了，总之就是各种迭代会很麻烦。</li>
 <li>2 没有好用的导航和目录形式，导致很难在直观上把文章之间和文章内部的格式给统一起来</li>
 <li>3 流量变现模式不成熟，对技术类创作者的奖励过少，让我感觉在知乎上即使写了很多东西也不被重视，看不到收获的希望。我最希望知乎出现的功能是，知乎能把知乎live形式给补充得更完善，这样方便做成一些技术类视频课放上去卖。但是知乎新出了很多功能，唯独知乎live还是老样子。</li>
 </ul>
