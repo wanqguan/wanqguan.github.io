@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>蓝桥杯 PREV-67 字串排序 70% | 忘荃的个人网站</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://wanqguan.github.io/favicon.ico?v=1616913770667">
+<link rel="stylesheet" href="https://wanqguan.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="题目
+原题链接
+资源限制
+时间限制：1.0s   内存限制：256.0MB
+问题描述
+小蓝最近学习了一些排序算法，其中冒泡排序让他印象深刻。
+在冒泡排序中，每次只能交换相邻的两个元素。
+小蓝发现，如果对一个字符串中的字符排序，只允许交换相邻..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://wanqguan.github.io">
+        <img src="https://wanqguan.github.io/images/avatar.png?v=1616913770667" class="site-logo">
+        <h1 class="site-title">忘荃的个人网站</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      艺术×算法×启蒙：
+Coding的最小闭环，
+人类智慧的精粹。
+    </div>
+    <div class="site-footer">
+      本网站创建于 2021/3/24  | <a class="rss" href="https://wanqguan.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">蓝桥杯 PREV-67 字串排序 70%</h2>
+            <div class="post-date">2021-03-26</div>
+            
+            <div class="post-content" v-pre>
+              <h2 id="题目">题目</h2>
+<p><a href="http://lx.lanqiao.cn/problem.page?gpid=T803">原题链接</a></p>
+<p>资源限制<br>
+时间限制：1.0s   内存限制：256.0MB<br>
+问题描述<br>
+小蓝最近学习了一些排序算法，其中冒泡排序让他印象深刻。<br>
+在冒泡排序中，每次只能交换相邻的两个元素。<br>
+小蓝发现，如果对一个字符串中的字符排序，只允许交换相邻的两个字符，则在所有可能的排序方案中，冒泡排序的总交换次数是最少的。<br>
+例如，对于字符串 <code>lan</code> 排序，只需要 <code>1</code> 次交换。对于字符串 <code>qiao</code> 排序，总共需要 <code>4</code> 次交换。</p>
+<p>小蓝的幸运数字是 V，他想找到一个只包含小写英文字母的字符串，对这个串中的字符进行冒泡排序，正好需要 V 次交换。请帮助小蓝找一个这样的字符串。如果可能找到多个，请告诉小蓝最短的那个。如果最短的仍然有多个，请告诉小蓝字典序最小的那个。请注意字符串中可以包含相同的字符。</p>
+<p>输入格式<br>
+输入一行包含一个整数 ，为小蓝的幸运数字 V。</p>
+<p>输出格式<br>
+输出一个字符串，为所求的答案。</p>
+<pre><code>样例输入
+4
+样例输出
+bbaa
+
+样例输入
+100
+样例输出
+jihgfeeddccbbaa
+</code></pre>
+<h2 id="分析题目">分析题目</h2>
+<p>这个题本身还是有难度的。对于已知的一个乱序的序列，只能用相邻交换时候，求最小交换次数的话，应该是一个很典型的常见算法问题。但是这个题使用了逆向思维，转而问满足某一个最小交换次数的乱序序列。顿时就有点让人无从下手，还好题目中还出现了两个关键提示：<br>
+提示1： 如果对一个字符串中的字符排序，只允许交换相邻的两个字符，则在所有可能的排序方案中，冒泡排序的总交换次数是最少的。<br>
+提示2： 这个提示隐藏在样例输出中，通过观察样例输出bbaa和jihgfeeddccbbaa。所以从这点上就可以初步猜测，最小排序的答案往往是右边是每个字母二次重复的序列，而左边则是没有重复的序列，且整个构成的字母从右到左是abcdef... 。（我们暂时称这种序列为“理想序列”，因为我们假设正确答案一定是理想序列中的一个）</p>
+<p>从两个提示下手，经过分析，我最后发现了这样的规律（假设由前面n个单，后面m个双数构成）：<br>
+一个乱序序列的最小交换次数通常有三部分组成，以<code>jihgfeeddccbbaa</code>为例子（n=5, m=5）。<br>
+-1 第一部分是左边无重复部分 <code>jihgf</code> 的内部排序次数 <code>n * (n-1) / 2</code>；<br>
+-2 第二部分是右边2次重复部分<code>eeddccbbaa</code> 的内部排序次数<code>m * (m-1) * 2</code>；<br>
+-3 第三部分是右边2次重复部分<code>eeddccbbaa</code> 因为左边无重复部分而多使用的排序次数<code>m * n * 2</code>。<br>
+这样，我们就得到了计算理想序列的交换数的函数：</p>
+<pre><code class="language-python">def cacl_mn_cishu(m, n):
+    &quot;前面n个单，后面m个双数&quot;
+    shuangs = m * (m-1) * 2  # 偶数
+    if shuangs &lt;0: shuangs=0
+    shuangs_up = m * n * 2  # 偶数
+    dans = n * (n-1) / 2  # 奇数
+    if dans &lt;0: dans=0
+    # print(shuangs, shuangs_up, dans)
+    return shuangs + shuangs_up + dans
+</code></pre>
+<p>发现这个函数后，我们发现每个理想序列都可以用（m,n）这样的元组来表示，而且各个理想序列还通过这样的方式相互联系了起来。（有兴趣的话，可以自己推到一下m,n到 m,n+1 或者 m+1, n的递推公式）。</p>
+<p>最后得到一个初步的解决方案：</p>
+<h2 id="我的代码">我的代码</h2>
+<pre><code class="language-python"># %%
+from functools import wraps
+
+alphabs = 'abcdefghijklmnopqrstuvwxyz'
+
+def memo(func):
+    &quot;记忆体化的通用函数”
+    cache = {}                                  # Stored subproblem solutions
+    @wraps(func)                                # Make wrap look like func
+    def wrap(*args):                            # The memoized wrapper
+        if args not in cache:                   # Not already computed?
+            cache[args] = func(*args)           # Compute &amp; cache the solution
+        return cache[args]                      # Return the cached solution
+    return wrap                                 # Return the wrapper
+
+def cacl_mn_cishu(m, n):
+    &quot;前面n个单，后面m个双数&quot;
+    shuangs = m * (m-1) * 2  # 偶数
+    if shuangs &lt;0: shuangs=0
+    shuangs_up = m * n * 2  # 偶数
+    dans = n * (n-1) / 2  # 奇数
+    if dans &lt;0: dans=0
+    # print(shuangs, shuangs_up, dans)
+
+    return shuangs + shuangs_up + dans
+
+# # Test
+# print(cacl_mn_cishu(2, 0)  )
+# print(cacl_mn_cishu(1, 2)  )
+# print(cacl_mn_cishu(5, 5)  )
+
+def solve_tar(tar):
+    @memo
+    def my_solve(m, n, tar):
+        # print(m, n)
+        if cacl_mn_cishu(m, n) == tar:
+            return m, n
+        elif cacl_mn_cishu(m, n) &lt; tar:
+            m1n = my_solve(m+1, n, tar)
+            if m1n: return m1n
+            mn1 = my_solve(m, n+1, tar)
+            if mn1: return mn1
+
+    m, n = my_solve(0, 0, tar)
+    return m, n
+
+def shengcheng(m, n):
+    ans = []
+    for i in range(m):
+        ans += alphabs[i]
+        ans += alphabs[i]
+    for i in range(m, m+n):
+        ans += alphabs[i]
+    return ''.join(reversed(ans))
+
+# print(shengcheng(5, 5))
+
+tar = int(input())
+m, n = solve_tar(tar)
+# print(m, n)
+ans = shengcheng(m, n)
+print(ans)
+
+
+
+# %%
+
+</code></pre>
+<h2 id="遗留问题">遗留问题</h2>
+<p>1 整个解法是猜想性的，其正确性并没有被严密的证明<br>
+2 当V过大的时候，字母表可能不够用，这个时候答案会出现错误，这可能是最后该代码没有拿到100%通过的原因。</p>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://wanqguan.github.io/post/python-lian-xi-24-dian-you-xi/">
+                  <h3 class="post-title">
+                    Python练习：24点游戏
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>
