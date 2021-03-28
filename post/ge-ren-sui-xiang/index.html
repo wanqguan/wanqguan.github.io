@@ -1,109 +1,108 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" >
+<head>
+    <meta charset="utf-8"/>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 
 <title>个人写作随想：从知乎到个人博客 | 忘荃编程</title>
-<meta name="description" content="艺术×算法×启蒙：
-Coding的最小闭环，
-人类智慧的精粹。">
 
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="shortcut icon" href="https://wanqguan.github.io/favicon.ico?v=1616923908367">
+<link rel="shortcut icon" href="https://wanqguan.github.io/favicon.ico?v=1616924918219">
 
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://wanqguan.github.io/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
 
 
-<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
-
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-767YGDBX0X"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-767YGDBX0X');
-</script>
-
-
-  </head>
-  <body>
-  
-    <nav class="navbar border fixed split-nav">
-  <div class="nav-brand">
-    <h3><a href="https://wanqguan.github.io">忘荃编程</a></h3>
-  </div>
-  <div class="collapsible">
-    <input id="collapsible1" type="checkbox" name="collapsible1">
-    <button>
-      <label for="collapsible1">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-      </label>
-    </button>
-    <div class="collapsible-body">
-      <ul class="inline">
-        
-          <li>
-            
-              <a href="/" class="menu">
-                首页
-              </a>
-            
-          </li>
-        
-          <li>
-            
-              <a href="/archives" class="menu">
-                归档
-              </a>
-            
-          </li>
-        
-          <li>
-            
-              <a href="/tags" class="menu">
-                标签
-              </a>
-            
-          </li>
-        
-          <li>
-            
-              <a href="/post/about" class="menu">
-                关于
-              </a>
-            
-          </li>
-        
-      </ul>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            忘荃编程
+        </div>
     </div>
-  </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+                <div class="nav-item">
+                    
+                        <a href="/" class="menu gt-a-link">
+                            首页
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/archives" class="menu gt-a-link">
+                            归档
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/tags" class="menu gt-a-link">
+                            标签
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/post/about" class="menu gt-a-link">
+                            关于
+                        </a>
+                    
+                </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1616924918219" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
 </nav>
 
-    <div id="top" class="row site">
-      <div class="sm-12 md-8 col">
-        <div class="paper">
-          <article class="article">
-            <h1>个人写作随想：从知乎到个人博客</h1>
-            <p class="article-meta">
-              2021-03-24
-              
-                <a href="https://wanqguan.github.io/tag/KEP9W1csy/" class="badge warning">
-                  个人随想
-                </a>
-              
-            </p>
-            
-            <div class="post-content">
-              <p>之前一直在知乎写技术或者生活分享类的文章，用了一年之后，发现有些东西直接发在知乎上并不方便，所以经过反复的心理斗争最后给自己又整了个简单的个人小博客。<br>
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    个人写作随想：从知乎到个人博客
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2021-03-24 ·
+                    </time>
+                    
+                        <a href="https://wanqguan.github.io/tag/KEP9W1csy/" class="post-tags">
+                            # 个人随想
+                        </a>
+                    
+                </div>
+                <div class="post-content">
+                    <p>之前一直在知乎写技术或者生活分享类的文章，用了一年之后，发现有些东西直接发在知乎上并不方便，所以经过反复的心理斗争最后给自己又整了个简单的个人小博客。<br>
 <img src="https://wanqguan.github.io/post-images/1616591949321.png" alt="我目前的知乎的创作数据" loading="lazy"></p>
 <h3 id="先稍微总结下对知乎不满意的地方吧">先稍微总结下对知乎不满意的地方吧：</h3>
 <ul>
@@ -118,129 +117,51 @@ Coding的最小闭环，
 <li>2 作为知乎上内容发布的补充，这个博客的内容将主要吧以前知乎上零散发布的技术类内容重新梳理成最完整的形式，同时在其发布后一直保持更新迭代，修改错误或者补充内容。</li>
 </ul>
 
-            </div>
-          </article>
+                </div>
+            </article>
         </div>
-        <div class="paper" data-aos="fade-in">
-          
-        </div>
-        
-      </div>
 
-      <div class="sm-12 md-4 col sidebar">
-  <div class="paper info-container">
-    <img src="https://wanqguan.github.io/images/avatar.png?v=1616923908367" class="no-responsive avatar">
-    <div class="text-muted">艺术×算法×启蒙：
+        
+
+        
+
+        
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">艺术×算法×启蒙：
 Coding的最小闭环，
 人类智慧的精粹。</div>
     <div class="social-container">
-      
         
-      
+            
         
-      
+            
         
-      
+            
         
-      
+            
         
-      
+            
+        
+            
+        
     </div>
-  </div>
-  <div class="paper">
-    <div class="sidebar-title">
-      最新文章
+    <div class="footer-info">
+        本网站创建于 2021/3/24 
     </div>
-    <div class="row">
-      <ul>
-        
-          
-            <li>
-              <a href="https://wanqguan.github.io/post/lan-qiao-bei-ji-chu-ti/">蓝桥杯 基础题</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://wanqguan.github.io/post/lan-qiao-bei/">蓝桥杯 PREV-67 字串排序 70%</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://wanqguan.github.io/post/python-lian-xi-24-dian-you-xi/">Python练习：24点游戏</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://wanqguan.github.io/post/zhi-hu-jing-hua-da-xue-sheng-huo-zhong-de-bo-yi-jue-ce-yu-chao-yue/">写作平台测试（同步时关科学上网）</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://wanqguan.github.io/post/ge-ren-sui-xiang/">个人写作随想：从知乎到个人博客</a>
-            </li>
-          
-        
-          
-            <li>
-              <a href="https://wanqguan.github.io/post/about/">关于</a>
-            </li>
-          
-        
-      </ul>
+    <div>
+        Theme by <a href="https://imhanjie.com/" target="_blank">imhanjie</a>, Powered by <a
+                href="https://github.com/getgridea/gridea" target="_blank">Gridea | <a href="https://wanqguan.github.io/atom.xml" target="_blank">RSS</a></a>
     </div>
-  </div>
-  <div class="paper">
-    <div class="sidebar-title">
-      标签列表
-    </div>
-    <div class="row">
-      
-        <a href="https://wanqguan.github.io/tag/78VIxDfAv/" class="badge secondary">
-          蓝桥杯
-        </a>
-      
-        <a href="https://wanqguan.github.io/tag/vaW-AWVt4/" class="badge success">
-          编程刷题笔记
-        </a>
-      
-        <a href="https://wanqguan.github.io/tag/edyWsOuSG/" class="badge success">
-          力扣
-        </a>
-      
-        <a href="https://wanqguan.github.io/tag/EdXVRZM69/" class="badge warning">
-          Gridea
-        </a>
-      
-        <a href="https://wanqguan.github.io/tag/KEP9W1csy/" class="badge warning">
-          个人随想
-        </a>
-      
-    </div>
-  </div>
-  <div class="paper">
-    本网站创建于 2021/3/24  | <a class="rss" href="https://wanqguan.github.io/atom.xml" target="_blank">RSS</a>
-  </div>
 </div>
 
-
-    </div>
-
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-
-<script type="application/javascript">
-
-AOS.init();
-
-hljs.initHighlightingOnLoad()
-
+<script>
+  hljs.initHighlightingOnLoad()
 </script>
 
-
-
-
-  </body>
+    </div>
+</div>
+</body>
 </html>
