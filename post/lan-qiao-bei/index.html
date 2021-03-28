@@ -3,106 +3,101 @@
   <head>
     <meta charset="utf-8" >
 
-<title>蓝桥杯 PREV-67 字串排序 70% | 忘荃的个人网站</title>
+<title>蓝桥杯 PREV-67 字串排序 70% | 忘荃编程</title>
+<meta name="description" content="艺术×算法×启蒙：
+Coding的最小闭环，
+人类智慧的精粹。">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="https://wanqguan.github.io/favicon.ico?v=1616921282365">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://wanqguan.github.io/favicon.ico?v=1616920544996">
+<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://wanqguan.github.io/styles/main.css">
 
 
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
 
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 
-
-    <meta name="description" content="题目
-原题链接
-资源限制
-时间限制：1.0s   内存限制：256.0MB
-问题描述
-小蓝最近学习了一些排序算法，其中冒泡排序让他印象深刻。
-在冒泡排序中，每次只能交换相邻的两个元素。
-小蓝发现，如果对一个字符串中的字符排序，只允许交换相邻..." />
-    <meta name="keywords" content="蓝桥杯,编程刷题笔记" />
   </head>
   <body>
-    <div id="app" class="main">
-
-      <div class="sidebar" :class="{ 'full-height': menuVisible }">
-  <div class="top-container" data-aos="fade-right">
-    <div class="top-header-container">
-      <a class="site-title-container" href="https://wanqguan.github.io">
-        <img src="https://wanqguan.github.io/images/avatar.png?v=1616920544996" class="site-logo">
-        <h1 class="site-title">忘荃的个人网站</h1>
-      </a>
-      <div class="menu-btn" @click="menuVisible = !menuVisible">
-        <div class="line"></div>
-      </div>
-    </div>
-    <div>
-      
-        
-          <a href="/" class="site-nav">
-            首页
-          </a>
-        
-      
-        
-          <a href="/archives" class="site-nav">
-            归档
-          </a>
-        
-      
-        
-          <a href="/tags" class="site-nav">
-            标签
-          </a>
-        
-      
-        
-          <a href="/post/about" class="site-nav">
-            关于
-          </a>
-        
-      
-    </div>
+  
+    <nav class="navbar border fixed split-nav">
+  <div class="nav-brand">
+    <h3><a href="https://wanqguan.github.io">忘荃编程</a></h3>
   </div>
-  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
-    <div class="social-container">
-      
+  <div class="collapsible">
+    <input id="collapsible1" type="checkbox" name="collapsible1">
+    <button>
+      <label for="collapsible1">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </label>
+    </button>
+    <div class="collapsible-body">
+      <ul class="inline">
         
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    </div>
-    <div class="site-description">
-      艺术×算法×启蒙：
-Coding的最小闭环，
-人类智慧的精粹。
-    </div>
-    <div class="site-footer">
-      本网站创建于 2021/3/24  | <a class="rss" href="https://wanqguan.github.io/atom.xml" target="_blank">RSS</a>
-    </div>
-  </div>
-</div>
-
-
-      <div class="main-container">
-        <div class="content-container" data-aos="fade-up">
-          <div class="post-detail">
-            <h2 class="post-title">蓝桥杯 PREV-67 字串排序 70%</h2>
-            <div class="post-date">2021-03-26</div>
+          <li>
             
-            <div class="post-content" v-pre>
+              <a href="/" class="menu">
+                首页
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/archives" class="menu">
+                归档
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/tags" class="menu">
+                标签
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/post/about" class="menu">
+                关于
+              </a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div id="top" class="row site">
+      <div class="sm-12 md-8 col">
+        <div class="paper">
+          <article class="article">
+            <h1>蓝桥杯 PREV-67 字串排序 70%</h1>
+            <p class="article-meta">
+              2021-03-26
+              
+                <a href="https://wanqguan.github.io/tag/78VIxDfAv/" class="badge success">
+                  蓝桥杯
+                </a>
+              
+                <a href="https://wanqguan.github.io/tag/vaW-AWVt4/" class="badge ">
+                  编程刷题笔记
+                </a>
+              
+            </p>
+            
+            <div class="post-content">
               <h2 id="题目">题目</h2>
 <p><a href="http://lx.lanqiao.cn/problem.page?gpid=T803">原题链接</a></p>
 <p>资源限制<br>
@@ -223,53 +218,136 @@ print(ans)
 2 当V过大的时候，字母表可能不够用，这个时候答案会出现错误，这可能是最后该代码没有拿到100%通过的原因。</p>
 
             </div>
-            
-              <div class="tag-container">
-                
-                  <a href="https://wanqguan.github.io/tag/78VIxDfAv/" class="tag">
-                    蓝桥杯
-                  </a>
-                
-                  <a href="https://wanqguan.github.io/tag/vaW-AWVt4/" class="tag">
-                    编程刷题笔记
-                  </a>
-                
-              </div>
-            
-            
-              <div class="next-post">
-                <div class="next">下一篇</div>
-                <a href="https://wanqguan.github.io/post/python-lian-xi-24-dian-you-xi/">
-                  <h3 class="post-title">
-                    Python练习：24点游戏
-                  </h3>
-                </a>
-              </div>
-            
-
-            
-
-          </div>
-
+          </article>
         </div>
+        <div class="paper" data-aos="fade-in">
+          
+            <div class="next-post">
+              <div class="next">
+                下一篇
+              </div>
+              <a href="https://wanqguan.github.io/post/python-lian-xi-24-dian-you-xi/">
+                <h3 class="post-title">
+                  Python练习：24点游戏
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+        
       </div>
+
+      <div class="sm-12 md-4 col sidebar">
+  <div class="paper info-container">
+    <img src="https://wanqguan.github.io/images/avatar.png?v=1616921282365" class="no-responsive avatar">
+    <div class="text-muted">艺术×算法×启蒙：
+Coding的最小闭环，
+人类智慧的精粹。</div>
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      最新文章
+    </div>
+    <div class="row">
+      <ul>
+        
+          
+            <li>
+              <a href="https://wanqguan.github.io/post/lan-qiao-bei-ji-chu-ti/">蓝桥杯 基础题</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://wanqguan.github.io/post/lan-qiao-bei/">蓝桥杯 PREV-67 字串排序 70%</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://wanqguan.github.io/post/python-lian-xi-24-dian-you-xi/">Python练习：24点游戏</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://wanqguan.github.io/post/zhi-hu-jing-hua-da-xue-sheng-huo-zhong-de-bo-yi-jue-ce-yu-chao-yue/">写作平台测试（同步时关科学上网）</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://wanqguan.github.io/post/ge-ren-sui-xiang/">个人写作随想：从知乎到个人博客</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://wanqguan.github.io/post/about/">关于</a>
+            </li>
+          
+        
+      </ul>
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      标签列表
+    </div>
+    <div class="row">
+      
+        <a href="https://wanqguan.github.io/tag/78VIxDfAv/" class="badge secondary">
+          蓝桥杯
+        </a>
+      
+        <a href="https://wanqguan.github.io/tag/vaW-AWVt4/" class="badge success">
+          编程刷题笔记
+        </a>
+      
+        <a href="https://wanqguan.github.io/tag/edyWsOuSG/" class="badge secondary">
+          力扣
+        </a>
+      
+        <a href="https://wanqguan.github.io/tag/EdXVRZM69/" class="badge ">
+          Gridea
+        </a>
+      
+        <a href="https://wanqguan.github.io/tag/KEP9W1csy/" class="badge ">
+          个人随想
+        </a>
+      
+    </div>
+  </div>
+  <div class="paper">
+    本网站创建于 2021/3/24  | <a class="rss" href="https://wanqguan.github.io/atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+
+
     </div>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
 <script type="application/javascript">
 
 AOS.init();
 
-var app = new Vue({
-  el: '#app',
-  data: {
-    menuVisible: false,
-  },
-})
+hljs.initHighlightingOnLoad()
 
 </script>
-
-
 
 
 
