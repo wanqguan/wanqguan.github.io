@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wanqguan.github.io</id>
     <title>忘荃的个人网站</title>
-    <updated>2021-03-28T07:50:48.651Z</updated>
+    <updated>2021-03-28T08:35:48.232Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wanqguan.github.io"/>
     <link rel="self" href="https://wanqguan.github.io/atom.xml"/>
@@ -12,6 +12,66 @@ Coding的最小闭环，
     <logo>https://wanqguan.github.io/images/avatar.png</logo>
     <icon>https://wanqguan.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, 忘荃的个人网站</rights>
+    <entry>
+        <title type="html"><![CDATA[蓝桥杯 基础题]]></title>
+        <id>https://wanqguan.github.io/post/lan-qiao-bei-ji-chu-ti/</id>
+        <link href="https://wanqguan.github.io/post/lan-qiao-bei-ji-chu-ti/">
+        </link>
+        <updated>2021-03-28T08:24:56.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="prev-65-单词分析">PREV-65 单词分析</h2>
+<p>问题描述<br>
+小蓝正在学习一门神奇的语言，这门语言中的单词都是由小写英文字母组成，有些单词很长，远远超过正常英文单词的长度。小蓝学了很长时间也记不住一些单词，他准备不再完全记忆这些单词，而是根据单词中哪个字母出现得最多来分辨单词。</p>
+<p>现在，请你帮助小蓝，给了一个单词后，帮助他找到出现最多的字母和这个字母出现的次数。</p>
+<p>输入格式<br>
+输入一行包含一个单词，单词只由小写英文字母组成。</p>
+<p>输出格式<br>
+输出两行，第一行包含一个英文字母，表示单词中出现得最多的字母是哪个。如果有多个字母出现的次数相等，输出字典序最小的那个。</p>
+<p>第二行包含一个整数，表示出现得最多的那个字母在单词中出现的次数。<br>
+<strong>代码</strong>：</p>
+<pre><code class="language-python">from collections import defaultdict
+
+test = input()
+
+ans = defaultdict(int)
+
+for t in test:
+    ans[t] += 1
+
+maxy = max(ans.values())
+keys = list(ans.keys())
+for k in sorted(keys):
+    if ans[k] == maxy:
+        print(k)
+        print(maxy)
+        break
+</code></pre>
+<h2 id="成绩分析">成绩分析</h2>
+<p>问题描述<br>
+小蓝给学生们组织了一场考试，卷面总分为  分，每个学生的得分都是一个  到  的整数。<br>
+请计算这次考试的最高分、最低分和平均分。</p>
+<p>输入格式<br>
+输入的第一行包含一个整数 ，表示考试人数。<br>
+接下来  行，每行包含一个  至  的整数，表示一个学生的得分。</p>
+<p>输出格式<br>
+输出三行。<br>
+第一行包含一个整数，表示最高分。<br>
+第二行包含一个整数，表示最低分。<br>
+第三行包含一个实数，四舍五入保留正好两位小数，表示平均分。</p>
+<p><strong>代码</strong>：</p>
+<pre><code class="language-python">n = int(input())
+
+data = [0] * n
+for i in range(n):
+    data[i] = int(input())
+
+# data = [1,2,3,4,5]
+
+print(max(data))
+print(min(data))
+print(&quot;{:.2f}&quot;.format(sum(data) / len(data)))
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[蓝桥杯 PREV-67 字串排序 70%]]></title>
         <id>https://wanqguan.github.io/post/lan-qiao-bei/</id>
