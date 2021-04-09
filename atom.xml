@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wanqguan.github.io</id>
     <title>忘荃编程</title>
-    <updated>2021-03-28T10:44:45.401Z</updated>
+    <updated>2021-04-09T15:26:44.170Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wanqguan.github.io"/>
     <link rel="self" href="https://wanqguan.github.io/atom.xml"/>
@@ -12,6 +12,88 @@ Coding的最小闭环，
     <logo>https://wanqguan.github.io/images/avatar.png</logo>
     <icon>https://wanqguan.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, 忘荃编程</rights>
+    <entry>
+        <title type="html"><![CDATA[力扣百题-第一题 1. 两数之和]]></title>
+        <id>https://wanqguan.github.io/post/li-kou-bai-ti-di-yi-ti-1-liang-shu-zhi-he/</id>
+        <link href="https://wanqguan.github.io/post/li-kou-bai-ti-di-yi-ti-1-liang-shu-zhi-he/">
+        </link>
+        <updated>2021-04-09T14:47:09.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="我的奇怪的解法">我的奇怪的解法：</h2>
+<p><strong>思路：</strong>（先整个数组排序，然后一个元素依次从左到右，另外一个元素逐渐缩小范围。）</p>
+<pre><code class="language-python">from bisect import bisect_right
+
+def find(a, x):
+    i = bisect_left(a, x)
+    return i
+
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -&gt; List[int]:
+
+        new_nums = [(a, ai) for ai, a in enumerate(nums)]
+        new_nums.sort()
+        inds = [a[1] for a in new_nums]
+        vals = [a[0] for a in new_nums]
+        # print('inds', inds)
+        # print('vals', vals)
+
+        # special
+        for ai in range(len(vals)-1):
+            if vals[ai] == vals[ai+1] and target == 2*vals[ai]:
+                return [inds[ai], inds[ai+1]]
+
+        ln = len(vals)
+        bi = ln
+        for ai in range(ln):
+            a = vals[ai]
+            tmp_tar = target - a
+            geti = find(vals[ai: bi], tmp_tar)
+            geti += ai
+            # print('geti', ai, bi, geti)
+            
+            if geti == ln or geti == ai:
+                continue
+            if vals[geti] == tmp_tar:
+                # print(&quot;FIND&quot;, tmp_tar, vals[geti])
+                return [inds[ai], inds[geti]]
+            else:
+                bi = geti
+</code></pre>
+<p><strong>做题中的收获</strong><br>
+-1 自己容易将某个数组的索引和值给搞混<br>
+-2 对于二分查找的bisect模块用的不够熟练<br>
+-3 边界情况很多次尝试时候没搞清楚</p>
+<h2 id="我写的哈希表">我写的哈希表</h2>
+<p>在官方题解中看到了关键字，没看代码直接自己先做。我自己做的在结果中也没有排很靠前虽然</p>
+<pre><code class="language-python">class Solution:
+    def twoSum(self, nums: List[int], target: int) -&gt; List[int]:
+        nums_set = set(nums)
+        for a in nums:
+            another = target - a
+            if another in nums_set:
+                if another == a:
+                    if nums.count(a) &gt;= 2:  # 如果这个元素再列表中有两个以上
+                        ai1 = nums.index(a)
+                        ai2 = nums.index(a, ai1+1,)
+                        return [ai1, ai2]
+                else:
+                    return [nums.index(a), nums.index(another)]
+</code></pre>
+<p>收获：<br>
+python的list，dict等基本对象的方法要搞清楚，做题时候很有用。比如<code>list</code>的<code>index</code>方法。</p>
+<h2 id="官方题解中的哈希表方法运行速度基本是最快的了">官方题解中的哈希表方法（运行速度基本是最快的了）</h2>
+<pre><code class="language-python">class Solution:
+    def twoSum(self, nums: List[int], target: int) -&gt; List[int]:
+        hashtable = dict()
+        for i, num in enumerate(nums):
+            if target - num in hashtable:
+                return [hashtable[target - num], i]
+            hashtable[nums[i]] = i
+        return []
+</code></pre>
+<p>总结：<br>
+最大的特点是采取了“边加入边检测”的方法，这样巧妙地避免了我的方法中的重复的检测。因为我的方法对于a检测了tar-a，又对tar-a检测了a，刚好都重复了一次。另外这样还能避免元素和自己匹配的麻烦。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[蓝桥杯 基础题]]></title>
         <id>https://wanqguan.github.io/post/lan-qiao-bei-ji-chu-ti/</id>
